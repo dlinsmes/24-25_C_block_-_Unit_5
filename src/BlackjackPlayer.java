@@ -25,10 +25,10 @@ public class BlackjackPlayer {
         //jqk are worth 10
         //ace is worth 1 or 11, whichever is more beneficial
 
-        //test: 9 and 2 aces --> 21
-        //9 and 3 aces --> 12
+
 
         int score = 0;
+        int nAces = 0;
         //loop through hand arraylist to access each card
         for (int i = 0; i < hand.size(); i++) {
             Card current = hand.get(i);
@@ -44,8 +44,30 @@ public class BlackjackPlayer {
 
             //ace
             else
-                score += 1;
+                //don't score aces until after the rest of the
+            //hand has been scored
+                nAces++;
         }
+
+        //if you have more than one ace, at most count one as 11,
+        //count the rest as 1
+
+        //test:
+        //9 and 1 ace --> 20
+        //9 and 2 aces --> 21
+        //9 and 3 aces --> 12
+        //9 and 4 aces --> 13
+
+        if (nAces > 1)
+            score += nAces - 1;
+        if (nAces >= 1) {
+            if (score + 11 > 21)
+                score += 1;
+            else
+                score += 11;
+        }
+
+
         return score;
     }
 

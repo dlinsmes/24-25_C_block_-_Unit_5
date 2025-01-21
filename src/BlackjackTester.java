@@ -8,19 +8,29 @@ public class BlackjackTester {
 
         System.out.println(b);
 
-        Card c = new Card("hearts", 13);
+        Card c = new Card("hearts", 9);
 
         b.addCard(c);
 
         System.out.println(b);
 
-        Card c2 = new Card("hearts", 12);
+        Card c2 = new Card("hearts", 1);
 
         b.addCard(c2);
 
         System.out.println(b);
 
         System.out.println(b.getScore());
+
+        b.addCard(c2);
+        System.out.println(b);
+
+        b.addCard(c2);
+        System.out.println(b);
+
+        b.addCard(c2);
+        System.out.println(b);
+
 
 
     }
